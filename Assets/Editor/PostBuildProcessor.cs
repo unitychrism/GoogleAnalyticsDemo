@@ -79,9 +79,10 @@ public class PostBuildProcessor : MonoBehaviour
 		proj.AddFrameworkToProject(target, framework, false);
 		});
 
-		// Disable bitcode in order to build GPG C++ SDK
-		Debug.Log("[UNITY_IOS] ProcessPostBuild - Setting build property: ENABLE_BITCODE = NO");
-		proj.AddBuildProperty(target, "ENABLE_BITCODE", "NO");
+		// Disable bitcode in order to build non-bitcode Analytics plugin.
+		// Remove these lines to build the bitcode Analytics plugin.
+		// Debug.Log("[UNITY_IOS] ProcessPostBuild - Setting build property: ENABLE_BITCODE = NO");
+		// proj.AddBuildProperty(target, "ENABLE_BITCODE", "NO");
 
 		// Write PBXProject object back to the file
 		proj.WriteToFile (projPath);
